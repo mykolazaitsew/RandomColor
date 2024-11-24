@@ -4,7 +4,7 @@ const randomColor = () => {
        const color = [];
 
         for (let i = 0; i < 3; i++) {
-            const num = randomNumber();
+            const num = randomNumber(); 
             color.push(num)
         }
         console.log(color);
@@ -14,7 +14,7 @@ const randomColor = () => {
 
 const updateColor = (color) => {
     document.querySelector('h2').textContent = `Color = ${color}`;
-}
+} 
 
 
 document.getElementById('colorBtn').addEventListener('click', () =>{
