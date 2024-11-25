@@ -51,6 +51,30 @@ class CopyText {
         tempInput.select();
         document.execCommand("copy");
         document.body.removeChild(tempInput);
+        this.showCopiedMessage(event);
+    }
+
+    showCopiedMessage(event) {
+        const tooltip = document.createElement("span");
+        tooltip.textContent = "Copied!";
+        tooltip.style.position = "absolute";
+        tooltip.style.top = `${event.clientY + 10}px`;
+        tooltip.style.left = `${event.clientX + 10}px`;
+        tooltip.style.backgroundColor = "black";
+        tooltip.style.color = "white";
+        tooltip.style.padding = "5px";
+        tooltip.style.borderRadius = "5px";
+        tooltip.style.fontSize = "12px";
+        tooltip.style.zIndex = "1000";
+        tooltip.style.pointerEvents = "none";
+        tooltip.style.transition = "opacity 0.3s";
+    
+        document.body.appendChild(tooltip);
+    
+        setTimeout(() => {
+            tooltip.style.opacity = "0";
+            setTimeout(() => tooltip.remove(), 300);
+        }, 1000);
     }
 }
 
